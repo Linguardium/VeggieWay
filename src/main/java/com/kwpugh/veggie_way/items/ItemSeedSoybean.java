@@ -1,32 +1,27 @@
 package com.kwpugh.veggie_way.items;
 
+import net.minecraft.block.Block;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
+
 import java.util.List;
 
-import javax.annotation.Nullable;
-
-import net.minecraft.block.Block;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
-public class ItemSeedSoybean extends BlockNamedItem
+public class ItemSeedSoybean extends BlockItem
 {
-	public ItemSeedSoybean(Block crop, Properties builder)
+	public ItemSeedSoybean(Block crop, Settings builder)
 	{
 		super(crop, builder);      
 	}
  
-	@OnlyIn(Dist.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
-	{
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add((new TranslationTextComponent("item.veggie_way.soybean_seeds.line1").applyTextStyle(TextFormatting.GREEN)));
+	@Override
+	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+		super.appendTooltip(stack, world, tooltip, context);
+		tooltip.add((new TranslatableText("item.veggie_way.soybean_seeds.line1").formatted(Formatting.GREEN)));
 	}
 }
 

@@ -1,31 +1,26 @@
 package com.kwpugh.veggie_way.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
-import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.List;
 
 public class ItemWheatgerm extends Item
 {
-	public ItemWheatgerm(Properties properties)
+	public ItemWheatgerm(Settings properties)
 	{
 		super(properties);
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn)
-	{
-		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add((new TranslationTextComponent("item.veggie_way.wheatgerm.line1").applyTextStyle(TextFormatting.GREEN)));
-		tooltip.add((new TranslationTextComponent("item.veggie_way.wheatgerm.line2").applyTextStyle(TextFormatting.GREEN)));
+	@Override
+	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+		super.appendTooltip(stack, world, tooltip, context);
+		tooltip.add((new TranslatableText("item.veggie_way.wheatgerm.line1").formatted(Formatting.GREEN)));
+		tooltip.add((new TranslatableText("item.veggie_way.wheatgerm.line2").formatted(Formatting.GREEN)));
 	}
 }

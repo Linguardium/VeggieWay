@@ -5,7 +5,7 @@
             "item": "veggie_way:mill"
         },
         {
-            "tag": "forge:grain"
+            "tag": "c:grain"
         }
     ],
     "result": {

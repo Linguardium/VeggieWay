@@ -1,22 +1,22 @@
 package com.kwpugh.veggie_way.init;
 
-import com.kwpugh.veggie_way.VeggieWay;
 import com.kwpugh.veggie_way.blocks.PlantLentil;
 import com.kwpugh.veggie_way.blocks.PlantQuinoa;
 import com.kwpugh.veggie_way.blocks.PlantSoybean;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.minecraft.block.Material;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import static com.kwpugh.veggie_way.VeggieWay.MOD_ID;
 
 public class BlockInit
 {
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, VeggieWay.modid);
-	
-	public static final RegistryObject<Block> PLANT_QUINOA = BLOCKS.register("plant_quinoa", () -> new PlantQuinoa("plant_quinoa", Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0f, 0.0f).lightValue(15).sound(SoundType.CROP)));
-	public static final RegistryObject<Block> PLANT_SOYBEAN = BLOCKS.register("plant_soybean", () -> new PlantSoybean("plant_soybean", Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0f, 0.0f).lightValue(15).sound(SoundType.CROP)));
-	public static final RegistryObject<Block> PLANT_LENTIL = BLOCKS.register("plant_lentil", () -> new PlantLentil("plant_lentil", Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0f, 0.0f).lightValue(15).sound(SoundType.CROP)));
+	public static final PlantQuinoa PLANT_QUINOA = Registry.register(Registry.BLOCK, new Identifier(MOD_ID,"plant_quinoa"), new PlantQuinoa(FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().strength(0.0f, 0.0f).lightLevel(15).sounds(BlockSoundGroup.CROP).build()));
+	public static final PlantSoybean PLANT_SOYBEAN = Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"plant_soybean"), new PlantSoybean(FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().strength(0.0f, 0.0f).lightLevel(15).sounds(BlockSoundGroup.CROP).build()));
+	public static final PlantLentil PLANT_LENTIL = Registry.register(Registry.BLOCK,new Identifier(MOD_ID,"plant_lentil"), new PlantLentil(FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().strength(0.0f, 0.0f).lightLevel(15).sounds(BlockSoundGroup.CROP).build()));
+	public static void init() {
+
+	}
 }

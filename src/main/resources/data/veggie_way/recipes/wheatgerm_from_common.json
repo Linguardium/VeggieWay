@@ -12,7 +12,7 @@
     {
         "A":
         {
-            "tag": "forge:carbs"
+            "tag": "c:grain"
         },
         "B":
         {
@@ -22,7 +22,7 @@
     
     "result":
     {
-        "item": "veggie_way:carbs",
+        "item": "veggie_way:wheatgerm",
         "count": 4
     }
 }

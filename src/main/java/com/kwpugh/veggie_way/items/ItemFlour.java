@@ -4,8 +4,7 @@ import net.minecraft.item.Item;
 
 public class ItemFlour extends Item
 {
-
-	public ItemFlour(Properties properties)
+	public ItemFlour(Settings properties)
 	{
 		super(properties);
 	}

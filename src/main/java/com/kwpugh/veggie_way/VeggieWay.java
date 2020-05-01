@@ -1,78 +1,35 @@
 package com.kwpugh.veggie_way;
 
-import java.util.stream.Collectors;
-
+import com.kwpugh.veggie_way.init.BlockInit;
+import com.kwpugh.veggie_way.init.ItemInit;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.kwpugh.veggie_way.group.GroupVeggieWay;
-import com.kwpugh.veggie_way.init.BlockInit;
-import com.kwpugh.veggie_way.init.ItemInit;
-import com.kwpugh.veggie_way.util.BlockRenders;
-import com.kwpugh.veggie_way.util.Config;
+public class VeggieWay implements ModInitializer {
 
-import net.minecraft.item.ItemGroup;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+    public static Logger LOGGER = LogManager.getLogger();
 
-@Mod("veggie_way")
-public class VeggieWay
-{
-	public static final String modid = "veggie_way";
-	public static final Logger logger = LogManager.getLogger(modid);	
-	public static final ItemGroup veggie_way = new GroupVeggieWay();
+    public static final String MOD_ID = "veggie_way";
+    public static final String MOD_NAME = "The Veggie Way";
+    public static ItemGroup veggie_way = FabricItemGroupBuilder.create(new Identifier(MOD_ID,"veggie_way")).icon(()->new ItemStack(Items.CARROT)).build();
 
-    public VeggieWay()
-    {
-    	Config.loadConfig(Config.config, FMLPaths.CONFIGDIR.get().resolve("veggie_way.toml").toString());
-    	
-    	BlockInit.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-    	ItemInit.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-   
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        
-        MinecraftForge.EVENT_BUS.register(this);
+    @Override
+    public void onInitialize() {
+        log(Level.INFO, "Initializing");
+        BlockInit.init();
+        ItemInit.init();
+        //TODO: Initializer
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        logger.info("VeggieWay common setup");
+    public static void log(Level level, String message){
+        LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
-    private void clientSetup(final FMLClientSetupEvent event)
-    {
-    	BlockRenders.defineRenders();
-		
-    	logger.info("VeggieWay client setup", event.getMinecraftSupplier().get().gameSettings);
-    }
-
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-        InterModComms.sendTo("veggie_way", "helloworld", () -> { logger.info("Hello world from VeggieWay"); return "Hello world";});
-    }
-
-    private void processIMC(final InterModProcessEvent event)
-    {
-    	logger.info("VeggieWay IMC", event.getIMCStream().
-                map(m->m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
-    }
-
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event)
-    {
-    	logger.info("VeggieWay server setup");
-    }
 }

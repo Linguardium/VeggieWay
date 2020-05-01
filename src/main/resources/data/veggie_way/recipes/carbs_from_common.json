@@ -12,7 +12,7 @@
     {
         "A":
         {
-            "tag": "forge:protein"
+            "tag": "c:carbs"
         },
         "B":
         {
@@ -22,7 +22,7 @@
     
     "result":
     {
-        "item": "veggie_way:proteins",
+        "item": "veggie_way:carbs",
         "count": 4
     }
 }

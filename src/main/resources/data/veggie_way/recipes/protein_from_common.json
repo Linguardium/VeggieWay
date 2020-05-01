@@ -12,7 +12,7 @@
     {
         "A":
         {
-            "tag": "forge:grain"
+            "tag": "c:protein"
         },
         "B":
         {
@@ -22,7 +22,7 @@
     
     "result":
     {
-        "item": "veggie_way:wheatgerm",
+        "item": "veggie_way:proteins",
         "count": 4
     }
 }
