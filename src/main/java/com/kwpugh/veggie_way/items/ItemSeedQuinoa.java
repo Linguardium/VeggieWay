@@ -17,7 +17,12 @@ public class ItemSeedQuinoa extends BlockItem
 	{
 		super(crop, builder);      
 	}
- 
+
+	@Override
+	public String getTranslationKey() {
+		return "item.veggie_way.quinoa_seeds";
+	}
+
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		super.appendTooltip(stack, world, tooltip, context);
