@@ -1,251 +1,131 @@
 package com.kwpugh.veggie_way.util;
 
+import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
+import me.sargunvohra.mcmods.autoconfig1u.annotation.*;
+import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 
+import static com.kwpugh.veggie_way.VeggieWay.MOD_ID;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-
-public class VeggieWayConfig 
+@Config(name=MOD_ID)
+public class VeggieWayConfig implements ConfigData
 {
-	public static ForgeConfigSpec.IntValue chocolate_bar_hunger;
-	public static ForgeConfigSpec.IntValue chocolate_bar_saturation;
-	
-	public static ForgeConfigSpec.IntValue melon_chunk_hunger;
-	public static ForgeConfigSpec.IntValue melon_chunk_saturation;
-	
-	public static ForgeConfigSpec.IntValue cactus_chunk_hunger;
-	public static ForgeConfigSpec.IntValue cactus_chunk_saturation;
 
-	public static ForgeConfigSpec.IntValue pumpkin_chunk_hunger;
-	public static ForgeConfigSpec.IntValue pumpkin_chunk_saturation;
-	
-	public static ForgeConfigSpec.IntValue apple_pie_hunger;
-	public static ForgeConfigSpec.IntValue apple_pie_saturation;
-	
-	public static ForgeConfigSpec.IntValue melon_pie_hunger;
-	public static ForgeConfigSpec.IntValue melon_pie_saturation;
-	
-	public static ForgeConfigSpec.IntValue berry_pie_hunger;
-	public static ForgeConfigSpec.IntValue berry_pie_saturation;
-	
-	public static ForgeConfigSpec.IntValue pumpkin_soup_hunger;
-	public static ForgeConfigSpec.IntValue pumpkin_soup_saturation;
-	
-	public static ForgeConfigSpec.IntValue cactus_soup_hunger;
-	public static ForgeConfigSpec.IntValue cactus_soup_saturation;
-	
-	public static ForgeConfigSpec.IntValue melon_soup_hunger;
-	public static ForgeConfigSpec.IntValue melon_soup_saturation;
+	@ConfigEntry.Gui.CollapsibleObject
+	@ConfigEntry.Gui.PrefixText
+	public Chunks chunks = new Chunks();
 
-	public static ForgeConfigSpec.IntValue carrot_soup_hunger;
-	public static ForgeConfigSpec.IntValue carrot_soup_saturation;
-	
-	public static ForgeConfigSpec.IntValue super_petals_hunger;
-	public static ForgeConfigSpec.IntValue super_petals_saturation;
-	
-	public static ForgeConfigSpec.IntValue energy_drink_hunger;
-	public static ForgeConfigSpec.IntValue energy_drink_saturation;
-	
-	public static ForgeConfigSpec.IntValue shake_hunger;
-	public static ForgeConfigSpec.IntValue shake_saturation;
-	
-	public static ForgeConfigSpec.IntValue smoothie_hunger;
-	public static ForgeConfigSpec.IntValue smoothie_saturation;
-	
-	public static ForgeConfigSpec.IntValue energyBar_hunger;
-	public static ForgeConfigSpec.IntValue energyBar_saturation;
-	
-	public static ForgeConfigSpec.IntValue superFoodBar_hunger;
-	public static ForgeConfigSpec.IntValue superFoodBar_saturation;
-	
-	public static ForgeConfigSpec.Builder server_output;
-	
-	
-	public static void init(ForgeConfigSpec.Builder server)
-	{
-		server_output = server.comment("Chunk Hunger and Saturation Values").push("Chunks");
-		
-			server_output = server.comment("Chunks").push("Melon Chunk");
-			melon_chunk_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("melon_chunk_hunger", 2, 0, 30);
-			melon_chunk_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("melon_chunk_saturation", 1, 0, 10);
-			server_output.pop();
-		
-			server_output = server.comment("Chunks").push("Cactus Chunk");
-			cactus_chunk_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("cactus_chunk_hunger", 2, 0, 30);
-			cactus_chunk_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("cactus_chunk_saturation", 1, 0, 10);
-			server_output.pop();
-		
-			server_output = server.comment("Chunks").push("Pumpkin Chunk");
-			pumpkin_chunk_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("pumpkin_chunk_hunger", 2, 0, 30);
-			pumpkin_chunk_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("pumpkin_chunk_saturation", 1, 0, 10);
-			server_output.pop();
-		
-		server_output.pop();		
+	@ConfigEntry.Gui.CollapsibleObject
+	@ConfigEntry.Gui.PrefixText
+	public Pies pies = new Pies();
 
-		
-		server_output = server.comment("Pie Hunger and Saturation Values").push("Pie");
-		
-			server_output = server.comment("Pie").push("Apple Pie");
-			apple_pie_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("apple_pie_hunger", 7, 0, 30);
-			apple_pie_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("apple_pie_saturation", 2, 0, 10);
-			server_output.pop();
-		
-		
-			server_output = server.comment("Pie").push("Melon Pie");
-			melon_pie_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("melon_pie_hunger", 7, 0, 30);
-			melon_pie_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("melon_pie_saturation", 2, 0, 10);
-			server_output.pop();
-			
-		
-			server_output = server.comment("Pie").push("Berry Pie");
-			berry_pie_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("berry_pie_hunger", 7, 0, 30);
-			berry_pie_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("berry_pie_saturation", 2, 0, 10);		
-			server_output.pop();
-		
-		server_output.pop();
-		
-	
-		server_output = server.comment("Soup Hunger and Saturation Values").push("Soup");
-		
-			server_output = server.comment("Soup").push("Pumpkin Soup");
-			pumpkin_soup_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("pumpkin_soup_hunger", 6, 0, 30);
-			pumpkin_soup_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("pumpkin_soup_saturation", 1, 0, 10);
-			server_output.pop();
-	
-			
-			server_output = server.comment("Soup").push("Melon Soup");
-			melon_soup_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("melon_soup_hunger", 6, 0, 30);
-			melon_soup_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("melon_soup_saturation", 1, 0, 10);
-			server_output.pop();
-			
-			
-			server_output = server.comment("Soup").push("Cactus Soup");
-			cactus_soup_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("cactus_soup_hunger", 6, 0, 30);
-			cactus_soup_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("cactus_soup_saturation", 1, 0, 10);
-			server_output.pop();
-	
-			
-			server_output = server.comment("Soup").push("Carrot Soup");
-			carrot_soup_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("carrot_soup_hunger", 6, 0, 30);
-			carrot_soup_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("carrot_soup_saturation", 1, 0, 10);
-			server_output.pop();
-		
-		server_output.pop();
+	@ConfigEntry.Gui.CollapsibleObject
+	@ConfigEntry.Gui.PrefixText
+	public Soups soups = new Soups();
 
-		
-		server_output = server.comment("Super Food Hunger and Saturation Values").push("Super Foods");
+	@ConfigEntry.Gui.CollapsibleObject
+	@ConfigEntry.Gui.PrefixText
+	public SuperFoods super_foods = new SuperFoods();
 
-			server_output = server.comment("Super Foods").push("Super Petals");
-			super_petals_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("super_petals_hunger", 6, 0, 30);
-			super_petals_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("super_petals_saturation", 9, 0, 10);
-			server_output.pop();
-		
-			
-			server_output = server.comment("Super Foods").push("Energy Drink");
-			energy_drink_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("energy_drink_hunger", 9, 0, 30);
-			energy_drink_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("energy_drink_saturation", 2, 0, 10);
-			server_output.pop();
-		
-		
-			server_output = server.comment("Super Foods").push("Shake");
-			shake_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("shake_hunger", 10, 0, 30);
-			shake_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("shake_saturation", 3, 0, 10);
-			server_output.pop();
-		
-		
-			server_output = server.comment("Super Foods").push("Smoothie");
-			smoothie_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("smoothie_hunger", 10, 0, 30);
-			smoothie_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("smoothie_saturation", 3, 0, 10);
-			server_output.pop();
-		
-		
-			server_output = server.comment("Super Foods").push("Bar");
-			energyBar_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("energyBar_hunger", 13, 0, 30);
-			energyBar_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("energyBar_saturation", 4, 0, 10);	
-			
-			superFoodBar_hunger = server
-					.comment("Hunger value:")
-					.defineInRange("superFoodBar_hunger", 13, 0, 30);
-			superFoodBar_saturation = server
-					.comment("Saturation value:")
-					.defineInRange("superFoodBar_saturation", 4, 0, 10);
-			server_output.pop();
-		
-		
-		server_output.pop();
-		
-		
-	server_output = server.comment("Misc Hunger and Saturation Values").push("Misc");
-		
-		server_output = server.comment("Misc").push("Apple Pie");
-		chocolate_bar_hunger = server
-				.comment("Hunger value:")
-				.defineInRange("chocolate_bar_hunger", 7, 0, 30);
-		chocolate_bar_saturation = server
-				.comment("Saturation value:")
-				.defineInRange("chocolate_bar_saturation", 2, 0, 10);
-		server_output.pop();
-	
-	server_output.pop();
-		
+	@ConfigEntry.Gui.CollapsibleObject
+	@ConfigEntry.Gui.PrefixText
+	public Misc misc = new Misc();
+
+
+	public static class Chunks {
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int melon_chunk_hunger = 2;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int melon_chunk_saturation = 1;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int pumpkin_chunk_hunger = 2;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int pumpkin_chunk_saturation = 1;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int cactus_chunk_hunger = 2;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int cactus_chunk_saturation = 1;
+
 	}
+	public static class Pies {
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int apple_pie_hunger = 7;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int apple_pie_saturation = 2;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int melon_pie_hunger = 7;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int melon_pie_saturation = 2;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int berry_pie_hunger = 7;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int berry_pie_saturation = 2;
+
+
+	}
+	public static class Soups {
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int pumpkin_soup_hunger = 6;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int pumpkin_soup_saturation = 1;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int cactus_soup_hunger = 6;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int cactus_soup_saturation = 1;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int melon_soup_hunger = 6;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int melon_soup_saturation = 1;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int carrot_soup_hunger = 6;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int carrot_soup_saturation = 1;
+
+	}
+	public static class SuperFoods {
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int super_petals_hunger = 6;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int super_petals_saturation = 9;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int energy_drink_hunger = 9;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int energy_drink_saturation = 2;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int shake_hunger = 10;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int shake_saturation = 3;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int smoothie_hunger = 10;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int smoothie_saturation = 3;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int energyBar_hunger = 13;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int energyBar_saturation = 4;
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int superFoodBar_hunger = 13;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int superFoodBar_saturation = 4;
+	}
+	public static class Misc {
+
+		@ConfigEntry.BoundedDiscrete(min=0,max=30)
+		public int chocolate_bar_hunger = 7;
+		@ConfigEntry.BoundedDiscrete(min=0,max=10)
+		public int chocolate_bar_saturation = 2;
+	}
+
 }

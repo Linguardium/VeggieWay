@@ -1,59 +1,60 @@
 package com.kwpugh.veggie_way.lists;
 
+import com.kwpugh.veggie_way.VeggieWay;
 import net.minecraft.item.FoodComponent;
 
 public class FoodList {
 
-    static int chocolateBarHunger = VeggieWayConfig.chocolate_bar_hunger.get();
-    static int chocolateBarSaturation = VeggieWayConfig.chocolate_bar_saturation.get();
+    static int chocolateBarHunger = VeggieWay.getConfig().misc.chocolate_bar_hunger;
+    static int chocolateBarSaturation = VeggieWay.getConfig().misc.chocolate_bar_saturation;
 
-    static int cactusChunkHunger = VeggieWayConfig.cactus_chunk_hunger.get();
-    static int cactusChunkSaturation = VeggieWayConfig.cactus_chunk_saturation.get();
+    static int cactusChunkHunger = VeggieWay.getConfig().chunks.cactus_chunk_hunger;
+    static int cactusChunkSaturation = VeggieWay.getConfig().chunks.cactus_chunk_saturation;
 
-    static int melonChunkHunger = VeggieWayConfig.melon_chunk_hunger.get();
-    static int melonChunkSaturation = VeggieWayConfig.melon_chunk_saturation.get();
+    static int melonChunkHunger = VeggieWay.getConfig().chunks.melon_chunk_hunger;
+    static int melonChunkSaturation = VeggieWay.getConfig().chunks.melon_chunk_saturation;
 
-    static int pumpkinChunkHunger = VeggieWayConfig.pumpkin_chunk_hunger.get();
-    static int pumpkinChunkSaturation = VeggieWayConfig.pumpkin_chunk_saturation.get();
+    static int pumpkinChunkHunger = VeggieWay.getConfig().chunks.pumpkin_chunk_hunger;
+    static int pumpkinChunkSaturation = VeggieWay.getConfig().chunks.pumpkin_chunk_saturation;
 
-    static int applePieHunger = VeggieWayConfig.apple_pie_hunger.get();
-    static int applePieSaturation = VeggieWayConfig.apple_pie_saturation.get();
+    static int applePieHunger = VeggieWay.getConfig().pies.apple_pie_hunger;
+    static int applePieSaturation = VeggieWay.getConfig().pies.apple_pie_saturation;
 
-    static int melonPieHunger = VeggieWayConfig.melon_pie_hunger.get();
-    static int melonPieSaturation = VeggieWayConfig.melon_pie_saturation.get();
+    static int melonPieHunger = VeggieWay.getConfig().pies.melon_pie_hunger;
+    static int melonPieSaturation = VeggieWay.getConfig().pies.melon_pie_saturation;
 
-    static int berryPieHunger = VeggieWayConfig.berry_pie_hunger.get();
-    static int berryPieSaturation = VeggieWayConfig.berry_pie_saturation.get();
+    static int berryPieHunger = VeggieWay.getConfig().pies.berry_pie_hunger;
+    static int berryPieSaturation = VeggieWay.getConfig().pies.berry_pie_saturation;
 
-    static int pumpkinSoupHunger = VeggieWayConfig.pumpkin_soup_hunger.get();
-    static int pumpkinSoupSaturation = VeggieWayConfig.pumpkin_soup_saturation.get();
+    static int pumpkinSoupHunger = VeggieWay.getConfig().soups.pumpkin_soup_hunger;
+    static int pumpkinSoupSaturation = VeggieWay.getConfig().soups.pumpkin_soup_saturation;
 
-    static int melonSoupHunger = VeggieWayConfig.melon_soup_hunger.get();
-    static int melonSoupSaturation = VeggieWayConfig.cactus_soup_saturation.get();
+    static int melonSoupHunger = VeggieWay.getConfig().soups.melon_soup_hunger;
+    static int melonSoupSaturation = VeggieWay.getConfig().soups.cactus_soup_saturation;
 
-    static int cactusSoupHunger = VeggieWayConfig.cactus_soup_hunger.get();
-    static int cactusSoupSaturation = VeggieWayConfig.cactus_soup_saturation.get();
+    static int cactusSoupHunger = VeggieWay.getConfig().soups.cactus_soup_hunger;
+    static int cactusSoupSaturation = VeggieWay.getConfig().soups.cactus_soup_saturation;
 
-    static int carrotSoupHunger = VeggieWayConfig.carrot_soup_hunger.get();
-    static int carrotSoupSaturation = VeggieWayConfig.carrot_soup_saturation.get();
+    static int carrotSoupHunger = VeggieWay.getConfig().soups.carrot_soup_hunger;
+    static int carrotSoupSaturation = VeggieWay.getConfig().soups.carrot_soup_saturation;
 
-    static int superPetalsHunger = VeggieWayConfig.super_petals_hunger.get();
-    static int superPetalsSaturation = VeggieWayConfig.super_petals_saturation.get();
+    static int superPetalsHunger = VeggieWay.getConfig().super_foods.super_petals_hunger;
+    static int superPetalsSaturation = VeggieWay.getConfig().super_foods.super_petals_saturation;
 
-    static int energyDrinkHunger = VeggieWayConfig.energy_drink_hunger.get();
-    static int energyDrinkSaturation = VeggieWayConfig.energy_drink_saturation.get();
+    static int energyDrinkHunger = VeggieWay.getConfig().super_foods.energy_drink_hunger;
+    static int energyDrinkSaturation = VeggieWay.getConfig().super_foods.energy_drink_saturation;
 
-    static int shakeHunger = VeggieWayConfig.shake_hunger.get();
-    static int shakeSaturation = VeggieWayConfig.shake_saturation.get();
+    static int shakeHunger = VeggieWay.getConfig().super_foods.shake_hunger;
+    static int shakeSaturation = VeggieWay.getConfig().super_foods.shake_saturation;
 
-    static int smoothieHunger = VeggieWayConfig.smoothie_hunger.get();
-    static int smoothieSaturation = VeggieWayConfig.smoothie_saturation.get();
+    static int smoothieHunger = VeggieWay.getConfig().super_foods.smoothie_hunger;
+    static int smoothieSaturation = VeggieWay.getConfig().super_foods.smoothie_saturation;
 
-    static int energyBarHunger = VeggieWayConfig.energyBar_hunger.get();
-    static int energyBarSaturation = VeggieWayConfig.energyBar_saturation.get();
+    static int energyBarHunger = VeggieWay.getConfig().super_foods.energyBar_hunger;
+    static int energyBarSaturation = VeggieWay.getConfig().super_foods.energyBar_saturation;
 
-    static int superFoodHunger = VeggieWayConfig.superFoodBar_hunger.get();
-    static int superFoodSaturation = VeggieWayConfig.superFoodBar_saturation.get();
+    static int superFoodHunger = VeggieWay.getConfig().super_foods.superFoodBar_hunger;
+    static int superFoodSaturation = VeggieWay.getConfig().super_foods.superFoodBar_saturation;
 
     public static FoodComponent chocolate_bar = (new FoodComponent.Builder()).hunger(chocolateBarHunger).saturationModifier(chocolateBarSaturation).alwaysEdible().snack().build();
     public static FoodComponent cactus_chunk = (new FoodComponent.Builder()).hunger(cactusChunkHunger).saturationModifier(cactusChunkSaturation).alwaysEdible().snack().build();

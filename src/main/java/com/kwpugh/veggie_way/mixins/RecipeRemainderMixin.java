@@ -1,19 +1,19 @@
 package com.kwpugh.veggie_way.mixins;
 
 import com.kwpugh.veggie_way.api.CustomRecipeRemainder;
-import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.CraftingRecipe;
+import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.util.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(Recipe.class)
-public class RecipeRemainderMixin {
-    @Redirect(at=@At("HEAD"),method="getRemainingStacks")
-    public <C extends Inventory> DefaultedList<ItemStack> multipleStacks(C inventory) {
+@Mixin(ShapelessRecipe.class)
+public abstract class RecipeRemainderMixin implements CraftingRecipe {
+
+    @Override
+    public DefaultedList<ItemStack> getRemainingStacks(CraftingInventory inventory) {
         DefaultedList<ItemStack> defaultedList = DefaultedList.ofSize(inventory.getInvSize(), ItemStack.EMPTY);
 
         for(int i = 0; i < defaultedList.size(); ++i) {

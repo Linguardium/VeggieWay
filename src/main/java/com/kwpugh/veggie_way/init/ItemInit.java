@@ -16,7 +16,7 @@ public class ItemInit
 
 	public static final ItemKnife KNIFE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "knife"), new ItemKnife(new Item.Settings().maxDamage(128).group(VeggieWay.veggie_way)));
 	public static final ItemHandRake HAND_RAKE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hand_rake"), new ItemHandRake(ToolMaterials.IRON, -2, -3, new Item.Settings().group(VeggieWay.veggie_way)));
-	public static final ItemHandScraper HAND_SCRAPER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hand_scraper"), new ItemHandScraper(new Item.Settings().maxCount(1).group(VeggieWay.veggie_way)));
+	public static final ItemHandScraper HAND_SCRAPER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hand_scraper"), new ItemHandScraper(new Item.Settings().maxDamage(20).group(VeggieWay.veggie_way)));
 	public static final Item BAMBOO_SHEET = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "bamboo_sheet"), new Item(new Item.Settings().group(VeggieWay.veggie_way)));
 	public static final Item LARGE_BAMBOO_SHEET = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "large_bamboo_sheet"), new Item(new Item.Settings().group(VeggieWay.veggie_way)));	
 	
@@ -36,7 +36,7 @@ public class ItemInit
 	public static final MushroomStewItem PUMPKIN_SOUP = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "pumpkin_soup"), new MushroomStewItem(new Item.Settings().maxCount(1).food(FoodList.pumpkin_soup).group(VeggieWay.veggie_way)));
 	public static final MushroomStewItem CACTUS_SOUP = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cactus_soup"), new MushroomStewItem(new Item.Settings().maxCount(1).food(FoodList.cactus_soup).group(VeggieWay.veggie_way)));
 	public static final MushroomStewItem MELON_SOUP = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "melon_soup"), new MushroomStewItem(new Item.Settings().maxCount(1).food(FoodList.melon_soup).group(VeggieWay.veggie_way)));
-	public static final MushroomStewItem CARROT_SOUP = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "carrot_soup"), new MushroomStewItem(new Item.Settings().maxCount(1).food(FoodList.melon_soup).group(VeggieWay.veggie_way)));
+	public static final MushroomStewItem CARROT_SOUP = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "carrot_soup"), new MushroomStewItem(new Item.Settings().maxCount(1).food(FoodList.carrot_soup).group(VeggieWay.veggie_way)));
 	
 	public static final Item APPLE_PIE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "apple_pie"), new Item(new Item.Settings().food(FoodList.apple_pie).group(VeggieWay.veggie_way)));	
 	public static final Item SWEET_BERRY_PIE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "sweet_berry_pie"), new Item(new Item.Settings().food(FoodList.sweet_berry_pie).group(VeggieWay.veggie_way)));

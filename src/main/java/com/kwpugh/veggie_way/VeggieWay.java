@@ -2,6 +2,9 @@ package com.kwpugh.veggie_way;
 
 import com.kwpugh.veggie_way.init.BlockInit;
 import com.kwpugh.veggie_way.init.ItemInit;
+import com.kwpugh.veggie_way.util.VeggieWayConfig;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -23,11 +26,15 @@ public class VeggieWay implements ModInitializer {
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing");
+        AutoConfig.register(VeggieWayConfig.class, GsonConfigSerializer::new);
+
         BlockInit.init();
         ItemInit.init();
-        //TODO: Initializer
-    }
 
+    }
+    public static VeggieWayConfig getConfig() {
+        return AutoConfig.getConfigHolder(VeggieWayConfig.class).getConfig();
+    }
     public static void log(Level level, String message){
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
